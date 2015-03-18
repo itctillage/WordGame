@@ -1,0 +1,39 @@
+<!--- Rubi Yanto - C00163855 - 28/11/2014 --->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <div class ="text">
+        <h1 style ="font-family: Arial">Word Game</h1></div>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="myCss.css")}}" />
+</head>
+
+<body style="text-align:center; font-family: Arial; border: 2px solid blue; box-shadow: 10px 10px 5px #888888;>
+    <div class = "text">
+<p><h3>From the random Word below<br>
+    select seven words containing three letters or more<br>
+    Random word is : <font color = "red" >{{word}} </font></h3></p>
+</div>
+
+
+<form method="post" action="{{ action }}">
+    <table class="CSSTableGenerator"  style="border: 3px solid blue;position: absolute;top:270px;left:460px;">
+        <tr>
+            <td> No </td>
+            <td> Guess Word</td>
+        </tr>
+        {% for guess in numberOfGuesses %}
+        <tr>
+            <td> {{ guess }} </td>
+            <td> <input type="text" name="guess"/></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit" value="Submit" style="width:80px;height:40px; background-color: lightgreen;">Submit</button>
+    <button type="reset" value="Reset" style="width:80px;height:40px;background-color: lightgreen">Reset</button><br><br>
+</form>
+</body>
+</html>

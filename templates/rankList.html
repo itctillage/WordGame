@@ -1,0 +1,39 @@
+<!--- Rubi Yanto - C00163855 - 28/11/2014 --->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <div class ="text">
+        <h1 style ="font-family: Arial">Rank List</h1></div>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "myCss.css")}}" />
+</head>
+<body style="text-align:center; font-family: Arial; border: 2px solid blue; box-shadow: 10px 10px 5px #888888;>
+<form method="post" action="{{ action }}">
+<table class="CSSTableGenerator" style="border: 3px solid blue;position: absolute;top:270px;left:460px;">
+    <tr>
+        <td>No</td>
+        <td>Name</td>
+        <td>Time</td>
+    </tr>
+    {% set count = 1 %}
+    {% for rank in rankList[:10] %}
+    <tr>
+        <td>{{ count }}</td>
+        <td>{{ rank.name }}</td>
+        <td>{{ rank.time }}</td>
+    </tr>
+    {% set count = count + 1 %}
+    {% endfor %}
+
+    <div class ="text">
+        <h2 style ="font-family: Arial">Hi, {{ myRank.name }}! you are in rank: {{ myRank.rank }} <br>
+            <h3>Your time: {{myRank.time}} </h3></h2></div>
+
+</table>
+<input type="button" onclick=window.location="{{ url_for('display_home') }}" value="Play Again" style="width:80px;height:40px; background-color: lightgreen;"/><br>
+
+</form><br>
+
+</body>
+</html>

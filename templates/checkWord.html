@@ -1,0 +1,38 @@
+<!--- Rubi Yanto - C00163855 - 28/11/2014 --->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head >
+    <meta charset="UTF-8">
+    <div class ="text">
+        <h1 style ="font-family: Arial">Word Game</h1></div>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="myCss.css")}}" />
+</head>
+<body style="text-align:center; font-family: Arial; border: 2px solid blue; box-shadow: 10px 10px 5px #888888;>
+<div class ="text">
+<h3 style ="font-family: Arial">Time spent: {{ time }} second </h3></div>
+
+<table class="CSSTableGenerator"  style="border: 3px solid blue;position: absolute;top:270px;left:460px;">
+    <tr>
+        <td>Guess Word</td>
+        <td>In Dictionary</td>
+    </tr>
+    {% for check in checks %}
+    <tr>
+        <td>{{ check.word }}</td>
+        <td>{{ check.result }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% if correct %}
+
+<form method="post" action="{{ action }}">
+    Name:
+    <input type="text" name="name" />
+    <input type="submit" value="Check your rank" style="width:120px;height:40px;background-color: lightblue" />
+</form><br>
+{% endif %}
+<input type="button" onclick=window.location="{{ url_for('display_home') }}" value="Play Again" style="width:80px;height:40px; background-color: lightgreen;"/><br><br>
+</body>
+
+</html>
