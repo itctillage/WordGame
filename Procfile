@@ -1,0 +1,1 @@
+web: python WordGame.py
